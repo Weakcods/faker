@@ -6,11 +6,11 @@ use Faker\Factory;
 // Create Faker instance with Philippine locale
 $faker = Factory::create('en_PH');
 
-// Database connection (you'll need to configure these values)
+// Database connection
 $host = 'localhost';
-$dbname = 'your_database';
-$user = 'your_username';
-$pass = 'your_password';
+$dbname = 'faker';
+$user = 'root';
+$pass = '76532@';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
