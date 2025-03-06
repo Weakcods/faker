@@ -9,3 +9,12 @@ CREATE TABLE IF NOT EXISTS offices (
     postal VARCHAR(20) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    lastname VARCHAR(100) NOT NULL,
+    firstname VARCHAR(100) NOT NULL,
+    office_id INT NOT NULL,
+    address TEXT NOT NULL,
+    FOREIGN KEY (office_id) REFERENCES offices(id)
+);
+
