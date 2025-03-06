@@ -18,3 +18,14 @@ CREATE TABLE IF NOT EXISTS employees (
     FOREIGN KEY (office_id) REFERENCES offices(id)
 );
 
+CREATE TABLE IF NOT EXISTS transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id INT NOT NULL,
+    office_id INT NOT NULL,
+    datelog DATETIME NOT NULL,
+    action VARCHAR(50) NOT NULL,
+    remarks TEXT,
+    documentcode VARCHAR(50) NOT NULL,
+    FOREIGN KEY (employee_id) REFERENCES employees(id),
+    FOREIGN KEY (office_id) REFERENCES offices(id)
+);
