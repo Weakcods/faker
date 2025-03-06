@@ -6,15 +6,19 @@ use Faker\Factory;
 // Create Faker instance with Philippine locale
 $faker = Factory::create('en_PH');
 
-// Database connection
+// Database connection parameters
 $host = 'localhost';
-$dbname = 'faker';
 $user = 'root';
 $pass = '76532@';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+    // Connect without database selected
+    $pdo = new PDO("mysql:host=$host", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Create database if it doesn't exist
+    $pdo->exec("CREATE DATABASE IF NOT EXISTS faker");
+    $pdo->exec("USE faker");
 
     // Clear existing data
     $pdo->exec("SET FOREIGN_KEY_CHECKS = 0");
