@@ -133,7 +133,8 @@ class Lorem extends \Faker\Provider\Base
             $nbSentences = self::randomizeNbElements($nbSentences);
         }
 
-        return join(static::sentences($nbSentences), ' ');
+        $sentences = static::sentences($nbSentences);
+        return is_array($sentences) ? join(' ', $sentences) : $sentences;
     }
 
     /**
