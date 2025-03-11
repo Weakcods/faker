@@ -26,6 +26,11 @@
             'job_title' => $faker->jobTitle,
         ];
     }
-    
 
+    $users = [];
+    for ($i = 0; $i < 5; $i++) {
+        $users[] = generateFakeUser();
+    }
+
+echo json_encode($users, JSON_PRETTY_PRINT);
 ?>
