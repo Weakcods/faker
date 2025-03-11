@@ -29,7 +29,17 @@ echo "<tr>
         <th>Summary</th>
       </tr>";
 
+foreach ($books as $book) {
+    echo "<tr>";
+    echo "<td>{$book['title']}</td>";
+    echo "<td>{$book['author']}</td>";
+    echo "<td>{$book['genre']}</td>";
+    echo "<td>{$book['publication_year']}</td>";
+    echo "<td>{$book['isbn']}</td>";
+    echo "<td>{$book['summary']}</td>";
+    echo "</tr>";
 }
+
 echo "</table>";
 
 ?>
