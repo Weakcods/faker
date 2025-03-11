@@ -7,10 +7,10 @@ use Faker\Factory;
 $faker = Factory::create('en_PH');
 
 // Database connection (you'll need to configure these values)
-$host = 'localhost';
-$dbname = 'your_database';
-$user = 'your_username';
-$pass = 'your_password';
+$host = 'part2';
+$dbname = 'faker';
+$user = 'root';
+$pass = 'newpassword';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
