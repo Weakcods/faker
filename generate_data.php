@@ -9,11 +9,11 @@ $faker = Factory::create('en_PH');
 // Database connection parameters
 $host = 'localhost';
 $user = 'root';
-$pass = '76532@';
+$dbname = 'faker';
 
 try {
     // Connect without database selected
-    $pdo = new PDO("mysql:host=$host", $user, $pass);
+    $pdo = new PDO("mysql:host=$host", $user,);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     // Create database if it doesn't exist
