@@ -90,9 +90,11 @@ class Lorem extends \Faker\Provider\Base
         }
 
         $words = static::words($nbWords);
-        $words[0] = ucwords($words[0]);
-
-        return join($words, ' ') . '.';
+        if (is_array($words)) {
+            $words[0] = ucwords($words[0]);
+            return implode(' ', $words) . '.';
+        }
+        return ucwords($words) . '.';
     }
 
     /**
