@@ -6,22 +6,22 @@ use Faker\Factory;
 // Create Faker instance
 $faker = Factory::create();
 
-// Define book genres
+// Define specified book genres
 $genres = [
-    'Fiction', 'Non-Fiction', 'Science Fiction', 'Mystery', 'Romance', 
-    'Fantasy', 'Horror', 'Thriller', 'Historical Fiction', 'Biography'
+    'Fiction', 'Mystery', 'Science Fiction', 'Fantasy',
+    'Romance', 'Thriller', 'Historical', 'Horror'
 ];
 
-// Generate 10 books
+// Generate 15 books
 $books = [];
-for ($i = 0; $i < 10; $i++) {
+for ($i = 0; $i < 15; $i++) {
     $books[] = [
-        'title' => ucwords($faker->words(mt_rand(2, 5), true)),
+        'title' => ucwords($faker->words(mt_rand(2, 4), true)),
         'author' => $faker->name(),
         'genre' => $faker->randomElement($genres),
-        'publication_year' => $faker->numberBetween(1900, 2024),
+        'publication_year' => $faker->numberBetween(1950, 2024),
         'isbn' => $faker->numerify('978#########') . 'X',
-        'summary' => $faker->sentences(3, true)
+        'summary' => $faker->sentences(2, true)
     ];
 }
 ?>
@@ -36,7 +36,7 @@ for ($i = 0; $i < 10; $i++) {
 </head>
 <body>
     <div class="container my-5">
-        <h1 class="text-center mb-4">Generated Book Catalog</h1>
+        <h1 class="text-center mb-4">Book Catalog Database</h1>
         
         <div class="table-responsive">
             <table class="table table-hover table-striped">
@@ -55,10 +55,10 @@ for ($i = 0; $i < 10; $i++) {
                     <tr>
                         <td class="fw-bold"><?= htmlspecialchars($book['title']) ?></td>
                         <td><?= htmlspecialchars($book['author']) ?></td>
-                        <td><span class="badge bg-secondary"><?= htmlspecialchars($book['genre']) ?></span></td>
+                        <td><span class="badge bg-primary"><?= htmlspecialchars($book['genre']) ?></span></td>
                         <td><?= htmlspecialchars($book['publication_year']) ?></td>
                         <td><code><?= htmlspecialchars($book['isbn']) ?></code></td>
-                        <td><small><?= htmlspecialchars($book['summary']) ?></small></td>
+                        <td><small class="text-muted"><?= htmlspecialchars($book['summary']) ?></small></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
